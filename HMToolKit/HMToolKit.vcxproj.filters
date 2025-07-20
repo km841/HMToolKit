@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Client">
+      <UniqueIdentifier>{993f9052-c71e-47a8-b1f5-bd2b3310c87e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HMToolKit.cpp">
+      <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="hmObject.cpp" />
+    <ClCompile Include="pch.cpp">
+      <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="hmTimeStamp.cpp" />
+    <ClCompile Include="hmObserver.cpp" />
+    <ClCompile Include="hmIndent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hmObject.h" />
+    <ClInclude Include="pch.h">
+      <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="hmTimeStamp.h" />
+    <ClInclude Include="hmObserver.h" />
+    <ClInclude Include="hmIndent.h" />
+  </ItemGroup>
+</Project>
