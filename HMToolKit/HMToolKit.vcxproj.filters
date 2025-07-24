@@ -16,6 +16,8 @@
     <ClCompile Include="hmTimeStamp.cpp" />
     <ClCompile Include="hmObserver.cpp" />
     <ClCompile Include="hmIndent.cpp" />
+    <ClCompile Include="hmCommand.cpp" />
+    <ClCompile Include="hmSubjectHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -25,5 +27,7 @@
     <ClInclude Include="hmTimeStamp.h" />
     <ClInclude Include="hmObserver.h" />
     <ClInclude Include="hmIndent.h" />
+    <ClInclude Include="hmCommand.h" />
+    <ClInclude Include="hmSubjectHelper.h" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 #pragma once
-typedef unsigned long long hmMTimeType;
+
 class hmTimeStamp
 {
 public:

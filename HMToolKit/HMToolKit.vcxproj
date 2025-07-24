@@ -131,9 +131,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="hmCommand.cpp" />
     <ClCompile Include="hmIndent.cpp" />
     <ClCompile Include="hmObject.cpp" />
     <ClCompile Include="hmObserver.cpp" />
+    <ClCompile Include="hmSubjectHelper.cpp" />
     <ClCompile Include="hmTimeStamp.cpp" />
     <ClCompile Include="HMToolKit.cpp" />
     <ClCompile Include="pch.cpp">
@@ -142,9 +144,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hmCommand.h" />
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmObject.h" />
     <ClInclude Include="hmObserver.h" />
+    <ClInclude Include="hmSubjectHelper.h" />
     <ClInclude Include="hmTimeStamp.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
