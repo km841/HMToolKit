@@ -1,5 +1,6 @@
 #pragma once
 #include "hmTimeStamp.h"
+#include "hmSubjectHelper.h"
 
 class hmObject
 {
@@ -7,19 +8,14 @@ public:
 	hmObject();
 	virtual ~hmObject();
 
-
 public:
-	// 레퍼런스카운트
-	void Register();
-	void UnRegister();
-
-	int GetReferenceCount();
-
-	virtual std::wstring GetClassName() const;
-	virtual bool IsA(const std::wstring& _wszTypeName) const;
+	hmMTimeType GetMTime();
+	void Modified();
+	hmTypeBool InvokeEvent(unsigned long event, void* callData);
 
 protected:
-	int ReferenceCount;
 	hmTimeStamp MTime;
+	hmSubjectHelper* SubjectHelper;
+	std::wstring ObjectName;
 };
 

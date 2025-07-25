@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "hmSubjectHelper.h"
 #include "hmObserver.h"
+#include "hmCommand.h"
 
 hmSubjectHelper::hmSubjectHelper()
 	: Focus1(nullptr)
@@ -64,4 +65,67 @@ unsigned long hmSubjectHelper::AddObserver(unsigned long event, hmCommand* cmd, 
 	}
 
 	return elem->Tag;
+}
+
+hmTypeBool hmSubjectHelper::InvokeEvent(unsigned long event, void* callData, hmObject* self)
+{
+	bool focusHandled = false;
+	this->ListModified.push_back(false);
+
+	typedef std::vector<unsigned long> VisitedListType;
+	VisitedListType visited;
+	hmObserver* elem = this->Start;
+
+	const unsigned long maxTag = this->Count;
+
+	// InvokeEvent는 총 3개의 Loop로 이루어져 있음
+	// 1. PassiveObserver Loop
+
+	hmObserver* next;
+	while (elem)
+	{
+		next = elem->Next;
+
+		if (elem->Command->GetPassiveObserver() &&
+		   (elem->Event == event || elem->Event == hmCommand::AnyEvent) && 
+			elem->Tag < maxTag)
+		{
+			// Tag가 삽입될 적절한 위치를 찾는 로직
+			// Tag를 왜 삽입 기준으로 삼는가? 그것은 Tag는 삽입 순서 기반의 고유 번호이기 때문
+			// 삽입 순서? AddObserver가 되는 순서를 의미
+			// Passive Observer 중에서도 Observer가 삽입된 순서로 정렬하기 위해서!! 이렇게 이터레이터를 찾는 것임
+			VisitedListType::iterator vIter = std::lower_bound(visited.begin(), visited.end(), elem->Tag);
+
+			// 아직 해당 태그가 붙은 옵저버를 방문하지 않았다면? 실행
+			if (vIter == visited.end() || *vIter != elem->Tag)
+			{
+				visited.insert(vIter, elem->Tag);
+				hmCommand* command = elem->Command;
+				
+				// 실제 vtk에선 해당 코드 실행 후 command에 대한 reference count를 감소시켜 가비지컬렉팅
+				elem->Command->Execute(self, event, callData);
+			}
+			
+			// back이 true인 경우는 Observer List에 변화가 생겼다는 의미로, InvokeEvent에서는 경고만 날려줌
+			// 확인해보니 RemoveObserver에서  ListModified를 true로 바꿔주고 있는데,
+			// InvokeEvent 도중 옵저버가 삭제되면 예기치못한 문제가 발생할 수 있기 때문에
+			// 옵저버의 변화를 감지하는 것으로 생각됨
+			// AddObserver에서는 이 값을 변화시키지 않고 있는데 단순히 옵저버가 추가되는 것은 이벤트를 처리하는데 있어서 문제를 일으키지 않는다고 판단했기 때문인듯
+			if (this->ListModified.back())
+			{
+				//vtkGenericWarningMacro(
+				//	<< "Passive observer should not call AddObserver or RemoveObserver in callback.");
+				elem = this->Start;
+				this->ListModified.back() = false;
+			}
+			else
+			{
+				elem = next;
+			}
+
+		}
+	}
+
+
+	return hmTypeBool();
 }

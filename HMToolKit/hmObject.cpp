@@ -2,36 +2,36 @@
 #include "hmObject.h"
 
 hmObject::hmObject()
-	:ReferenceCount(0)
 {
+	this->SubjectHelper = nullptr;
 	this->MTime.Modified();
 }
 
 hmObject::~hmObject()
 {
+	delete this->SubjectHelper;
+	this->SubjectHelper = nullptr;
 }
 
-void hmObject::Register()
+hmMTimeType hmObject::GetMTime()
 {
+	return this->MTime.GetMTime();
 }
 
-void hmObject::UnRegister()
+void hmObject::Modified()
 {
+	this->MTime.Modified();
+
 }
 
-int hmObject::GetReferenceCount()
+hmTypeBool hmObject::InvokeEvent(unsigned long event, void* callData)
 {
+	if (this->SubjectHelper)
+	{
+		return this->SubjectHelper->InvokeEvent(event, callData, this);
+	}
+
 	return 0;
-}
-
-std::wstring hmObject::GetClassName() const
-{
-	return std::wstring();
-}
-
-bool hmObject::IsA(const std::wstring& _wszTypeName) const
-{
-	return false;
 }
 
 

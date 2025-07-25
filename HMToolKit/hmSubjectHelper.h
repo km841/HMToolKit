@@ -1,6 +1,8 @@
 #pragma once
 class hmObserver;
 class hmCommand;
+class hmObject;
+
 class hmSubjectHelper
 {
 public:
@@ -11,6 +13,7 @@ public:
 	void RemoveObserver(unsigned long tag);
 	void RemoveObservers(unsigned long event);
 
+	hmTypeBool InvokeEvent(unsigned long event, void* callData, hmObject* self);
 
 
 	std::vector<bool> ListModified;
