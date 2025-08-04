@@ -126,6 +126,59 @@ hmTypeBool hmSubjectHelper::InvokeEvent(unsigned long event, void* callData, hmO
 		}
 	}
 
+	// Focus, 즉 바로 처리할 커맨드가 있는지 검사
+	if (this->Focus1 || this->Focus2)
+	{
+		elem = this->Start;
+
+		// 연결리스트 순회
+		while (elem)
+		{
+			next = elem->Next;
+			// 두 포커스 중 하나라도 같고, 이벤트가 같거나, 모든 이벤트를 처리하는 커맨드거나, 실행시점에 추가된 옵저버인 경우
+			if (((this->Focus1 == elem->Command) || (this->Focus2 == elem->Command)) &&
+				(elem->Event == event || elem->Event == hmCommand::AnyEvent) && elem->Tag < maxTag) 
+			{
+				// 이미 방문한 노드인지 확인하기 위한 "이진 탐색"
+				VisitedListType::iterator vIter = std::lower_bound(visited.begin(), visited.end(), elem->Tag);
+
+				// vIter == visited.end라면 찾다가 맨 끝까지 간것이므로 중복 아님
+				// *vIter != elem->Tag라면 Tag보다 큰 다른 값만 있는 것!
+				// Tag는 옵저버를 구분하는 고유식별자!
+				if (vIter == visited.end() || *vIter != elem->Tag)
+				{
+					// 포커스가 실행 되었으므로 루프 끝
+					focusHandled = true;
+
+					// 방문 등록
+					visited.insert(vIter, elem->Tag);
+
+					hmCommand* command = elem->Command;
+					command->SetAbortFlag(0);
+
+					elem->Command->Execute(self, event, callData);
+
+					if (command->GetAbortFlag())
+					{
+						this->ListModified.pop_back();
+						return 1;
+					}
+				}
+			}
+
+			// 리스트가 변경되었다면 처음으로 돌린다
+			if (this->ListModified.back())
+			{
+				elem = this->Start;
+				this->ListModified.back() = false;
+			}
+			else
+			{
+				elem = next;
+			}
+		}
+	}
+
 
 	return hmTypeBool();
 }
