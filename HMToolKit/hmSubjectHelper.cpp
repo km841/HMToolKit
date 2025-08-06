@@ -179,6 +179,65 @@ hmTypeBool hmSubjectHelper::InvokeEvent(unsigned long event, void* callData, hmO
 		}
 	}
 
+	// 포커스가 없을때 실행하는 remainder loop
+	// 왜일까? 포커스를 위에서 execute했는데 아래껄 실행하지 않는 이유는?
+	// focus에서 이벤트가 처리되었으면 remainder 자체를 돌지 않도록 처리
+	// focus observer를 처리했다는 건 우선순위가 가장 높은 대상이 이벤트를 처리했다는 것
+	// 예시로 마우스 클릭이 처리되었는데 다른 패널이 이 클릭을 또 받는건 비정상적
+	// focusHandled로 단일 경로로 분리함으로써 observer가 중복 호출되거나 리스트가 변경되는 복잡한 환경에서 버그 발생 확률을 줄임
+	if (!focusHandled)
+	{
+		// root node 시작
+		elem = this->Start;
+		while (elem)
+		{
+			// 다음 노드로 이동할때 씀
+			next = elem->Next;
+			if ((elem->Event == event || elem->Event == hmCommand::AnyEvent) && elem->Tag < maxTag)
+			{
+				VisitedListType::iterator vIter =
+					std::lower_bound(visited.begin(), visited.end(), elem->Tag);
 
-	return hmTypeBool();
+				if (vIter == visited.end() || *vIter != elem->Tag)
+				{
+					// Sorted insertion by tag to speed-up future searches at limited
+					// insertion cost because it reuses the search iterator already at the
+					// correct location
+					// Tag값을 기준으로, 정렬된 상태로 삽입하면 이후 검색이 더 빨라진다!
+					// 삽입 비용도 낮은데, 그 이유는 이전에 사용했던 이터레이터를 재사용하기 때문이다!!
+					// 연결리스트가 정렬되어 있기 때문에 이진탐색을 빠르게 수행할 수 있음 (lower_bound)
+					// 그리고 lower_bound에서 찾은 iterator를 바로 삽입에 사용하기 때문에 속도가 매우 빠름
+
+					visited.insert(vIter, elem->Tag);
+					hmCommand* command = elem->Command;
+
+					// 실질적인 커맨드 실행
+					elem->Command->Execute(self, event, callData);
+
+					// AbortFlag 세워져 있으면 바로 종료
+					if (command->GetAbortFlag())
+					{
+						this->ListModified.pop_back();
+						return 1;
+					}
+
+				}
+			}
+
+			// 리스트 변경이 있었으면 처음으로 돌림
+			if (this->ListModified.back())
+			{
+				elem = this->Start;
+				this->ListModified.back() = false;
+			}
+			else
+			{
+				//아니면 다음으로 진행
+				elem = next;
+			}
+		}
+	}
+
+	this->ListModified.pop_back();
+	return 0;
 }
