@@ -18,6 +18,8 @@
     <ClCompile Include="hmIndent.cpp" />
     <ClCompile Include="hmCommand.cpp" />
     <ClCompile Include="hmSubjectHelper.cpp" />
+    <ClCompile Include="hmAlgorithm.cpp" />
+    <ClCompile Include="hmExecutive.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -29,5 +31,7 @@
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmCommand.h" />
     <ClInclude Include="hmSubjectHelper.h" />
+    <ClInclude Include="hmAlgorithm.h" />
+    <ClInclude Include="hmExecutive.h" />
   </ItemGroup>
 </Project>

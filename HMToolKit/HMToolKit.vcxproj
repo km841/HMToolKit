@@ -131,7 +131,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="hmAlgorithm.cpp" />
     <ClCompile Include="hmCommand.cpp" />
+    <ClCompile Include="hmExecutive.cpp" />
     <ClCompile Include="hmIndent.cpp" />
     <ClCompile Include="hmObject.cpp" />
     <ClCompile Include="hmObserver.cpp" />
@@ -144,7 +146,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hmAlgorithm.h" />
     <ClInclude Include="hmCommand.h" />
+    <ClInclude Include="hmExecutive.h" />
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmObject.h" />
     <ClInclude Include="hmObserver.h" />
