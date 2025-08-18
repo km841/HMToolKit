@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "hmTimeStamp.h"
 
+
 hmTimeStamp* hmTimeStamp::New()
 {
 	return new hmTimeStamp;
