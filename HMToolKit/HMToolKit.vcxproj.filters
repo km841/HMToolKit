@@ -20,6 +20,7 @@
     <ClCompile Include="hmSubjectHelper.cpp" />
     <ClCompile Include="hmAlgorithm.cpp" />
     <ClCompile Include="hmExecutive.cpp" />
+    <ClCompile Include="hmObjectBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -33,5 +34,6 @@
     <ClInclude Include="hmSubjectHelper.h" />
     <ClInclude Include="hmAlgorithm.h" />
     <ClInclude Include="hmExecutive.h" />
+    <ClInclude Include="hmObjectBase.h" />
   </ItemGroup>
 </Project>

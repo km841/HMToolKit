@@ -140,6 +140,7 @@
     <ClCompile Include="hmExecutive.cpp" />
     <ClCompile Include="hmIndent.cpp" />
     <ClCompile Include="hmObject.cpp" />
+    <ClCompile Include="hmObjectBase.cpp" />
     <ClCompile Include="hmObserver.cpp" />
     <ClCompile Include="hmSubjectHelper.cpp" />
     <ClCompile Include="hmTimeStamp.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="hmExecutive.h" />
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmObject.h" />
+    <ClInclude Include="hmObjectBase.h" />
     <ClInclude Include="hmObserver.h" />
     <ClInclude Include="hmSubjectHelper.h" />
     <ClInclude Include="hmTimeStamp.h" />
