@@ -35,5 +35,6 @@
     <ClInclude Include="hmAlgorithm.h" />
     <ClInclude Include="hmExecutive.h" />
     <ClInclude Include="hmObjectBase.h" />
+    <ClInclude Include="hmGetSet.h" />
   </ItemGroup>
 </Project>

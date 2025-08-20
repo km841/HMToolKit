@@ -154,6 +154,7 @@
     <ClInclude Include="hmAlgorithm.h" />
     <ClInclude Include="hmCommand.h" />
     <ClInclude Include="hmExecutive.h" />
+    <ClInclude Include="hmGetSet.h" />
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmObject.h" />
     <ClInclude Include="hmObjectBase.h" />
