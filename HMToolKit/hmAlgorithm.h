@@ -8,6 +8,7 @@ class hmAlgorithm :
 {
 public:
     static hmAlgorithm* New();
+	hmTypeMacro(hmAlgorithm, hmObject);
 
     enum DesiredOutputPrecision
     {
@@ -15,6 +16,14 @@ public:
         DOUBLE_PRECISION,
         DEFAULT_PRECISION,
     };
+
+	// 몇 개의 입력을 받을 수 있는지 반환
+	int GetNumberOfInputPorts();
+
+	// 몇 개의 출력을 반환할 수 있는지 반환
+	int GetNumberOfOutputPorts();
+
+
 
     // 이 구문은 Executive가 있는지 확인만 하고 생성하지 않음
     hmTypeBool HasExecutive();

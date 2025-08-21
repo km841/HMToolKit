@@ -5,6 +5,7 @@
 #include <atomic>
 #include <algorithm>
 #include <ostream>
+#include <sstream>
 #include "hmGetSet.h"
 
 using hmTypeBool = int;

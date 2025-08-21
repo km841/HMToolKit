@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "hmObjectBase.h"
+#include "hmIndent.h"
 
 const char * hmObjectBase::GetClassNameA() const
 {
@@ -9,6 +10,16 @@ const char * hmObjectBase::GetClassNameA() const
 const char * hmObjectBase::GetClassNameW() const
 {
 	return GetClassNameInternal();
+}
+
+void hmObjectBase::Print(std::ostream & os)
+{
+	hmIndent indent;
+
+	// PrintHeader
+	// PrintSelf
+	// PrintTrailer
+
 }
 
 hmIdType hmObjectBase::GetNumberOfGenerationsFromBaseType(const char * name)

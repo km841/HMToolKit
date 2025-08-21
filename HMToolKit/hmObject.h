@@ -7,12 +7,15 @@ class hmObject
 	: public hmObjectBase
 {
 public:
+	hmBaseTypeMacro(hmObject, hmObjectBase);
+
 	hmObject();
 	virtual ~hmObject();
 
 public:
-	hmMTimeType GetMTime();
-	void Modified();
+	virtual hmMTimeType GetMTime();
+	virtual void Modified();
+
 	hmTypeBool InvokeEvent(unsigned long event, void* callData);
 
 protected:

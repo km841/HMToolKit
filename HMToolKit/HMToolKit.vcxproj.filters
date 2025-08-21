@@ -21,6 +21,10 @@
     <ClCompile Include="hmAlgorithm.cpp" />
     <ClCompile Include="hmExecutive.cpp" />
     <ClCompile Include="hmObjectBase.cpp" />
+    <ClCompile Include="hmInformationVector.cpp" />
+    <ClCompile Include="hmDemandDrivenPipeline.cpp" />
+    <ClCompile Include="hmInformation.cpp" />
+    <ClCompile Include="hmInformationKey.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -36,5 +40,9 @@
     <ClInclude Include="hmExecutive.h" />
     <ClInclude Include="hmObjectBase.h" />
     <ClInclude Include="hmGetSet.h" />
+    <ClInclude Include="hmInformationVector.h" />
+    <ClInclude Include="hmDemandDrivenPipeline.h" />
+    <ClInclude Include="hmInformation.h" />
+    <ClInclude Include="hmInformationKey.h" />
   </ItemGroup>
 </Project>

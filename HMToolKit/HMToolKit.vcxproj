@@ -137,8 +137,12 @@
   <ItemGroup>
     <ClCompile Include="hmAlgorithm.cpp" />
     <ClCompile Include="hmCommand.cpp" />
+    <ClCompile Include="hmDemandDrivenPipeline.cpp" />
     <ClCompile Include="hmExecutive.cpp" />
     <ClCompile Include="hmIndent.cpp" />
+    <ClCompile Include="hmInformation.cpp" />
+    <ClCompile Include="hmInformationKey.cpp" />
+    <ClCompile Include="hmInformationVector.cpp" />
     <ClCompile Include="hmObject.cpp" />
     <ClCompile Include="hmObjectBase.cpp" />
     <ClCompile Include="hmObserver.cpp" />
@@ -153,9 +157,13 @@
   <ItemGroup>
     <ClInclude Include="hmAlgorithm.h" />
     <ClInclude Include="hmCommand.h" />
+    <ClInclude Include="hmDemandDrivenPipeline.h" />
     <ClInclude Include="hmExecutive.h" />
     <ClInclude Include="hmGetSet.h" />
     <ClInclude Include="hmIndent.h" />
+    <ClInclude Include="hmInformation.h" />
+    <ClInclude Include="hmInformationKey.h" />
+    <ClInclude Include="hmInformationVector.h" />
     <ClInclude Include="hmObject.h" />
     <ClInclude Include="hmObjectBase.h" />
     <ClInclude Include="hmObserver.h" />

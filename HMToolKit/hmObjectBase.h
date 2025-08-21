@@ -17,6 +17,8 @@ public:
 	const char* GetClassNameA() const;
 	const char* GetClassNameW() const;
 
+	void Print(std::ostream& os);
+
 	static hmIdType GetNumberOfGenerationsFromBaseType(const char* name);
 	virtual hmIdType GetNumberOfGenerationsFromBase(const char* name);
 
