@@ -142,6 +142,7 @@
     <ClCompile Include="hmIndent.cpp" />
     <ClCompile Include="hmInformation.cpp" />
     <ClCompile Include="hmInformationKey.cpp" />
+    <ClCompile Include="hmInformationKeyLookup.cpp" />
     <ClCompile Include="hmInformationVector.cpp" />
     <ClCompile Include="hmObject.cpp" />
     <ClCompile Include="hmObjectBase.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmInformation.h" />
     <ClInclude Include="hmInformationKey.h" />
+    <ClInclude Include="hmInformationKeyLookup.h" />
     <ClInclude Include="hmInformationVector.h" />
     <ClInclude Include="hmObject.h" />
     <ClInclude Include="hmObjectBase.h" />

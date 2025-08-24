@@ -17,7 +17,54 @@
 class hmInformationKey :
 	public hmObjectBase
 {
+public:
+	hmBaseTypeMacro(hmInformationKey, hmObjectBase);
 	// 구현해야함
 
+	// 키의 이름을 문자열로 리턴
+	const char* GetName();
+
+	// 키가 정의된 클래스 이름을 반환
+	// 같은 키라도 어떤 클래스에서 정의되었는지를 알 수 있음
+	const char* GetLocation();
+
+	hmInformationKey(const char* name, const char* location);
+	~hmInformationKey() override;
+
+protected:
+	char* Name;
+	char* Location;
+
+#define hmInformationKeySetStringMacro(name)                                                      \
+  virtual void Set##name(const char* _arg)                                                         \
+  {                                                                                                \
+    if (this->name == nullptr && _arg == nullptr)                                                  \
+    {                                                                                              \
+      return;                                                                                      \
+    }                                                                                              \
+    if (this->name && _arg && (!strcmp(this->name, _arg)))                                         \
+    {                                                                                              \
+      return;                                                                                      \
+    }                                                                                              \
+    delete[] this->name;                                                                           \
+    if (_arg)                                                                                      \
+    {                                                                                              \
+      size_t n = strlen(_arg) + 1;                                                                 \
+      char* cp1 = new char[n];                                                                     \
+      const char* cp2 = (_arg);                                                                    \
+      this->name = cp1;                                                                            \
+      do                                                                                           \
+      {                                                                                            \
+        *cp1++ = *cp2++;                                                                           \
+      } while (--n);                                                                               \
+    }                                                                                              \
+    else                                                                                           \
+    {                                                                                              \
+      this->name = nullptr;                                                                        \
+    }                                                                                              \
+  }
+
+	hmInformationKeySetStringMacro(Name);
+	hmInformationKeySetStringMacro(Location);
 };
 

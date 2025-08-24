@@ -25,6 +25,7 @@
     <ClCompile Include="hmDemandDrivenPipeline.cpp" />
     <ClCompile Include="hmInformation.cpp" />
     <ClCompile Include="hmInformationKey.cpp" />
+    <ClCompile Include="hmInformationKeyLookup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -44,5 +45,6 @@
     <ClInclude Include="hmDemandDrivenPipeline.h" />
     <ClInclude Include="hmInformation.h" />
     <ClInclude Include="hmInformationKey.h" />
+    <ClInclude Include="hmInformationKeyLookup.h" />
   </ItemGroup>
 </Project>

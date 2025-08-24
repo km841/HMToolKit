@@ -25,5 +25,11 @@ public:
 	static hmTypeBool IsTypeOf(const char* name);
 	virtual hmTypeBool IsA(const char* name);
 
+protected:
+	// ReferenceCount / WeakPointer 등 멤버함수 초기화
+	hmObjectBase() {}
+	// Reference Count가 0보다 크면 에러 메시지
+	virtual ~hmObjectBase() {}
+
 };
 

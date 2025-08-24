@@ -35,11 +35,6 @@ int hmExecutive::CheckAlgorithm(const char *, hmInformation * request)
 			// ErrorMsg Ãâ·Â
 		}
 
-		if (getenv("DASHBOARD_TEST_FROM_CTEST") || getenv("DART_TEST_FROM_DART"))
-		{
-			abort();
-		}
-
 		return 0;
 	}
 
