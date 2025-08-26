@@ -26,6 +26,9 @@
     <ClCompile Include="hmInformation.cpp" />
     <ClCompile Include="hmInformationKey.cpp" />
     <ClCompile Include="hmInformationKeyLookup.cpp" />
+    <ClCompile Include="hmInformationIntegerKey.cpp" />
+    <ClCompile Include="hmInformationInternals.cpp" />
+    <ClCompile Include="hmCommonInformationKeyManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -46,5 +49,8 @@
     <ClInclude Include="hmInformation.h" />
     <ClInclude Include="hmInformationKey.h" />
     <ClInclude Include="hmInformationKeyLookup.h" />
+    <ClInclude Include="hmInformationIntegerKey.h" />
+    <ClInclude Include="hmInformationInternals.h" />
+    <ClInclude Include="hmCommonInformationKeyManager.h" />
   </ItemGroup>
 </Project>

@@ -12,6 +12,7 @@
 using hmTypeBool = int;
 using hmIdType = long long;
 using hmMTimeType = unsigned long long;
+using uintptr_t = unsigned __int64;
 
 #if defined(__cplusplus)
 #define HM_TYPE_CAST(T, V) static_cast<T>(V)

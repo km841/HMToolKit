@@ -137,10 +137,13 @@
   <ItemGroup>
     <ClCompile Include="hmAlgorithm.cpp" />
     <ClCompile Include="hmCommand.cpp" />
+    <ClCompile Include="hmCommonInformationKeyManager.cpp" />
     <ClCompile Include="hmDemandDrivenPipeline.cpp" />
     <ClCompile Include="hmExecutive.cpp" />
     <ClCompile Include="hmIndent.cpp" />
     <ClCompile Include="hmInformation.cpp" />
+    <ClCompile Include="hmInformationIntegerKey.cpp" />
+    <ClCompile Include="hmInformationInternals.cpp" />
     <ClCompile Include="hmInformationKey.cpp" />
     <ClCompile Include="hmInformationKeyLookup.cpp" />
     <ClCompile Include="hmInformationVector.cpp" />
@@ -158,11 +161,14 @@
   <ItemGroup>
     <ClInclude Include="hmAlgorithm.h" />
     <ClInclude Include="hmCommand.h" />
+    <ClInclude Include="hmCommonInformationKeyManager.h" />
     <ClInclude Include="hmDemandDrivenPipeline.h" />
     <ClInclude Include="hmExecutive.h" />
     <ClInclude Include="hmGetSet.h" />
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmInformation.h" />
+    <ClInclude Include="hmInformationIntegerKey.h" />
+    <ClInclude Include="hmInformationInternals.h" />
     <ClInclude Include="hmInformationKey.h" />
     <ClInclude Include="hmInformationKeyLookup.h" />
     <ClInclude Include="hmInformationVector.h" />
