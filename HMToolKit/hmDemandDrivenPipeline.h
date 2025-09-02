@@ -16,6 +16,8 @@
 // 3. REQUEST_UPDATE_EXTENT : 필요한 부분만 업데이트하라! (대용량 Streaming)
 class hmInformation;
 class hmInformationVector;
+class hmInformationRequestKey;
+
 class hmDemandDrivenPipeline :
 	public hmExecutive
 {
@@ -24,5 +26,6 @@ public:
 	hmTypeMacro(hmDemandDrivenPipeline, hmExecutive);
 
 	hmTypeBool ProcessRequest(hmInformation* request, hmInformationVector** inInfo, hmInformationVector* outInfo) override;
+	static hmInformationRequestKey* REQUEST_DATA_OBJECT();
 };
 

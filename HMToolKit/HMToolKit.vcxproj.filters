@@ -4,6 +4,9 @@
     <Filter Include="Client">
       <UniqueIdentifier>{993f9052-c71e-47a8-b1f5-bd2b3310c87e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="InformationSystem">
+      <UniqueIdentifier>{4faf22b5-8250-4a50-aa9f-a6a3b9e30dcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HMToolKit.cpp">
@@ -21,14 +24,31 @@
     <ClCompile Include="hmAlgorithm.cpp" />
     <ClCompile Include="hmExecutive.cpp" />
     <ClCompile Include="hmObjectBase.cpp" />
-    <ClCompile Include="hmInformationVector.cpp" />
     <ClCompile Include="hmDemandDrivenPipeline.cpp" />
-    <ClCompile Include="hmInformation.cpp" />
-    <ClCompile Include="hmInformationKey.cpp" />
-    <ClCompile Include="hmInformationKeyLookup.cpp" />
-    <ClCompile Include="hmInformationIntegerKey.cpp" />
-    <ClCompile Include="hmInformationInternals.cpp" />
-    <ClCompile Include="hmCommonInformationKeyManager.cpp" />
+    <ClCompile Include="hmCommonInformationKeyManager.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmInformation.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmInformationIntegerKey.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmInformationInternals.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmInformationKey.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmInformationKeyLookup.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmInformationVector.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmInformationRequestKey.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -44,13 +64,31 @@
     <ClInclude Include="hmExecutive.h" />
     <ClInclude Include="hmObjectBase.h" />
     <ClInclude Include="hmGetSet.h" />
-    <ClInclude Include="hmInformationVector.h" />
     <ClInclude Include="hmDemandDrivenPipeline.h" />
-    <ClInclude Include="hmInformation.h" />
-    <ClInclude Include="hmInformationKey.h" />
-    <ClInclude Include="hmInformationKeyLookup.h" />
-    <ClInclude Include="hmInformationIntegerKey.h" />
-    <ClInclude Include="hmInformationInternals.h" />
-    <ClInclude Include="hmCommonInformationKeyManager.h" />
+    <ClInclude Include="hmCommonInformationKeyManager.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmInformation.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmInformationIntegerKey.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmInformationInternals.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmInformationKey.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmInformationKeyLookup.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmInformationVector.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmInformationRequestKey.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmObjectFactory.h" />
   </ItemGroup>
 </Project>

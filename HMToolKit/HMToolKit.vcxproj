@@ -146,6 +146,7 @@
     <ClCompile Include="hmInformationInternals.cpp" />
     <ClCompile Include="hmInformationKey.cpp" />
     <ClCompile Include="hmInformationKeyLookup.cpp" />
+    <ClCompile Include="hmInformationRequestKey.cpp" />
     <ClCompile Include="hmInformationVector.cpp" />
     <ClCompile Include="hmObject.cpp" />
     <ClCompile Include="hmObjectBase.cpp" />
@@ -171,9 +172,11 @@
     <ClInclude Include="hmInformationInternals.h" />
     <ClInclude Include="hmInformationKey.h" />
     <ClInclude Include="hmInformationKeyLookup.h" />
+    <ClInclude Include="hmInformationRequestKey.h" />
     <ClInclude Include="hmInformationVector.h" />
     <ClInclude Include="hmObject.h" />
     <ClInclude Include="hmObjectBase.h" />
+    <ClInclude Include="hmObjectFactory.h" />
     <ClInclude Include="hmObserver.h" />
     <ClInclude Include="hmSubjectHelper.h" />
     <ClInclude Include="hmTimeStamp.h" />

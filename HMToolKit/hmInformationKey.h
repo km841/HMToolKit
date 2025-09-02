@@ -14,6 +14,19 @@
 // 여기서 상속받는 hmInformationIntegerKey의 상속 이유는
 // 그냥 string이나 int를 사용할 경우 들어온 키를 어떤 타입으로 해석할 것인지가 모호해짐
 // 그래서 타입 안정성을 확보하기 위해 InformationIntegerKey와 같은 별도 객체를 사용
+
+class hmObjectBase;
+class hmInformation;
+class hmInformationKey;
+class hmInformationKeyToInformationFriendship
+{
+public:
+	static void SetAsObjectBase(hmInformation* info, hmInformationKey* key, hmObjectBase* value);
+	static const hmObjectBase* GetAsObjectBase(const hmInformation* info, const hmInformationKey* key);
+	static const hmObjectBase* GetAsObjectBase(hmInformation* info, hmInformationKey* key);
+};
+
+
 class hmInformationKey :
 	public hmObjectBase
 {
@@ -27,6 +40,10 @@ public:
 	// 키가 정의된 클래스 이름을 반환
 	// 같은 키라도 어떤 클래스에서 정의되었는지를 알 수 있음
 	const char* GetLocation();
+
+	virtual int Has(const hmInformation* info) const;
+	const hmObjectBase* GetAsObjectBase(const hmInformation* info) const;
+	void SetAsObjectBase(hmInformation* info, hmObjectBase* newvalue);
 
 	hmInformationKey(const char* name, const char* location);
 	~hmInformationKey() override;
@@ -68,3 +85,9 @@ protected:
 	hmInformationKeySetStringMacro(Location);
 };
 
+#define hmInformationKeyMacro(CLASS, NAME, type)                                                   \
+  static hmInformation##type##Key* CLASS##_##NAME = new hmInformation##type##Key(#NAME, #CLASS);   \
+  hmInformation##type##Key* CLASS::NAME()                                                          \
+  {                                                                                                \
+    return CLASS##_##NAME;                                                                         \
+  }

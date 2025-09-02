@@ -8,6 +8,7 @@
 #include <ostream>
 #include <sstream>
 #include "hmGetSet.h"
+#include "hmObjectFactory.h"
 
 using hmTypeBool = int;
 using hmIdType = long long;
