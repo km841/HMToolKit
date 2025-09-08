@@ -30,9 +30,14 @@ public:
 	// 있으면 0 리턴, 에러 메시지 출력
 	int CheckAlgorithm(const char*, hmInformation* request);
 	virtual hmTypeBool ProcessRequest(hmInformation* request, hmInformationVector** inInfo, hmInformationVector* outInfo);
+	
+	virtual int ForwardDownstream(hmInformation* request);
+	virtual int ForwardUpstream(hmInformation* request);
 
 protected:
 	hmAlgorithm* Algorithm;
 	int InAlgorithm;
+
+
 };
 

@@ -9,6 +9,10 @@ class hmInformationVectorInternals;
 // 이렇게 한 이유는 사용자는 원본 클래스를 사용하기 때문에 원본 클래스의 인터페이스는 유지
 // 세부 구현만 Internals에서 구현하고 변경함으로써 인터페이스 유지
 
+// 알고리즘의 입력과 출력을 관리하기 위한 컨테이너
+// vtk 버전의 std::vector
+// hmInformation 객체를 벡터 형태로 관리함
+
 class hmInformationVector :
 	public hmObject
 {

@@ -48,3 +48,18 @@ hmTypeBool hmExecutive::ProcessRequest(hmInformation * request, hmInformationVec
 
 	return hmTypeBool();
 }
+
+int hmExecutive::ForwardDownstream(hmInformation * request)
+{
+	return 0;
+}
+
+// 내 알고리즘이 데이터를 받는 대상 : 입력 알고리즘
+// 내가 밥을 먹으려면 밥해주는 사람 필요함 -> 밥해주는 사람 : 입력 알고리즘
+// vtkPipeline은 여러 알고리즘들이 서로 연결된 그래프처럼 생김
+// 
+
+int hmExecutive::ForwardUpstream(hmInformation * request)
+{
+	return 0;
+}

@@ -49,6 +49,10 @@
     <ClCompile Include="hmInformationRequestKey.cpp">
       <Filter>InformationSystem</Filter>
     </ClCompile>
+    <ClCompile Include="hmInformationExecutivePortKey.cpp">
+      <Filter>InformationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hmAlgorithmOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmObject.h" />
@@ -90,5 +94,9 @@
       <Filter>InformationSystem</Filter>
     </ClInclude>
     <ClInclude Include="hmObjectFactory.h" />
+    <ClInclude Include="hmInformationExecutivePortKey.h">
+      <Filter>InformationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hmAlgorithmOutput.h" />
   </ItemGroup>
 </Project>

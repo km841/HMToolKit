@@ -27,5 +27,14 @@ public:
 
 	hmTypeBool ProcessRequest(hmInformation* request, hmInformationVector** inInfo, hmInformationVector* outInfo) override;
 	static hmInformationRequestKey* REQUEST_DATA_OBJECT();
+
+protected:
+	// 파이프라인의 가장 최근 변경 시간
+	// executive에서 실행되는 모든 알고리즘 중 가장 최근에 변경된 시간
+	hmMTimeType PipelineMTime;
+
+	// 출력 데이터 객체 (hmImageData, hmPolyData, etc..) 마지막 생성 시간
+	hmTimeStamp DataObjectTime;
+
 };
 

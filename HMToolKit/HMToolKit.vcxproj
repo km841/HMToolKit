@@ -136,12 +136,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="hmAlgorithm.cpp" />
+    <ClCompile Include="hmAlgorithmOutput.cpp" />
     <ClCompile Include="hmCommand.cpp" />
     <ClCompile Include="hmCommonInformationKeyManager.cpp" />
     <ClCompile Include="hmDemandDrivenPipeline.cpp" />
     <ClCompile Include="hmExecutive.cpp" />
     <ClCompile Include="hmIndent.cpp" />
     <ClCompile Include="hmInformation.cpp" />
+    <ClCompile Include="hmInformationExecutivePortKey.cpp" />
     <ClCompile Include="hmInformationIntegerKey.cpp" />
     <ClCompile Include="hmInformationInternals.cpp" />
     <ClCompile Include="hmInformationKey.cpp" />
@@ -161,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hmAlgorithm.h" />
+    <ClInclude Include="hmAlgorithmOutput.h" />
     <ClInclude Include="hmCommand.h" />
     <ClInclude Include="hmCommonInformationKeyManager.h" />
     <ClInclude Include="hmDemandDrivenPipeline.h" />
@@ -168,6 +171,7 @@
     <ClInclude Include="hmGetSet.h" />
     <ClInclude Include="hmIndent.h" />
     <ClInclude Include="hmInformation.h" />
+    <ClInclude Include="hmInformationExecutivePortKey.h" />
     <ClInclude Include="hmInformationIntegerKey.h" />
     <ClInclude Include="hmInformationInternals.h" />
     <ClInclude Include="hmInformationKey.h" />
