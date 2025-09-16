@@ -2,6 +2,7 @@
 #include "hmDemandDrivenPipeline.h"
 #include "hmInformation.h"
 #include "hmInformationKey.h"
+#include "hmInformationVector.h"
 #include "hmInformationRequestKey.h"
 #include "hmInformationIntegerKey.h"
 
@@ -31,6 +32,7 @@ hmTypeBool hmDemandDrivenPipeline::ProcessRequest(hmInformation * request, hmInf
 	// 요청이 REQUEST_DATA_OBJECT ( 즉, 출력 데이터 객체를 만들어달라는 요청)
 	// 일 때만 실행
 	// REQUEST_DATA_OBJECT는 vtkDataObject를 생성/갱신하는 단계
+	// 출력 데이터 객체가 최신인지 확인한다. hmPolyData 등..
 	if (this->Algorithm && request->Has(REQUEST_DATA_OBJECT()))
 	{
 		// 파이프라인이 변경된 시간이 데이터 객체 수정 시간보다 과거라면, 이미 최신
@@ -39,10 +41,45 @@ hmTypeBool hmDemandDrivenPipeline::ProcessRequest(hmInformation * request, hmInf
 			return 1;
 		}
 
+		if (!this->ForwardUpstream(request))
+		{
+			return 0;
+		}
 		// 여기로 내려왔다는 건 파이프라인이 최신이 아니라는 것
 		// 업데이트가 필요하다는 얘기
+
+		int result = 1;
+		// PipelineMTime : Pipeline이 변경된 시간
+		// DataObjectTime : DataObject가 생성된 시간
+		if (this->PipelineMTime > this->DataObjectTime.GetMTime())
+		{
+			result = this->ExecuteDataObject(request, inInfo, outInfo);
+		}
 
 	}
 
 	return hmTypeBool();
+}
+
+hmDemandDrivenPipeline::hmDemandDrivenPipeline()
+{
+}
+
+hmDemandDrivenPipeline::~hmDemandDrivenPipeline()
+{
+}
+
+int hmDemandDrivenPipeline::ExecuteDataObject(hmInformation * request, hmInformationVector ** inInfo, hmInformationVector * outInfo)
+{
+	return 0;
+}
+
+int hmDemandDrivenPipeline::ExecuteInformation(hmInformation * request, hmInformationVector ** inInfo, hmInformationVector * outInfo)
+{
+	return 0;
+}
+
+int hmDemandDrivenPipeline::ExecuteData(hmInformation * request, hmInformationVector ** inInfo, hmInformationVector * outInfo)
+{
+	return 0;
 }

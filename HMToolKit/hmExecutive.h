@@ -38,6 +38,12 @@ protected:
 	hmAlgorithm* Algorithm;
 	int InAlgorithm;
 
+	hmInformationVector** SharedInputInformation;
+	hmInformationVector* SharedOutputInformation;
+
+private:
+	hmInformationVector* OutputInformation;
+
 
 };
 

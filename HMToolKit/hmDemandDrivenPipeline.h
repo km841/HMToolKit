@@ -36,5 +36,12 @@ protected:
 	// 출력 데이터 객체 (hmImageData, hmPolyData, etc..) 마지막 생성 시간
 	hmTimeStamp DataObjectTime;
 
+	hmDemandDrivenPipeline();
+	~hmDemandDrivenPipeline() override;
+
+
+	virtual int ExecuteDataObject(hmInformation* request, hmInformationVector** inInfo, hmInformationVector* outInfo);
+	virtual int ExecuteInformation(hmInformation* request, hmInformationVector** inInfo, hmInformationVector* outInfo);
+	virtual int ExecuteData(hmInformation* request, hmInformationVector** inInfo, hmInformationVector* outInfo);
 };
 
